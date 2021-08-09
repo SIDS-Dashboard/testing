@@ -62,18 +62,28 @@ map.on('load', function() {
       }
     })
 
-    logData();
+    map.once("idle", function(){
+        logData();
+    })
+    
+    
   })
 
 })
 
 
   function logData() {
+      
 
-
-    var features = map.queryRenderedFeatures();
+    
+        var features = map.queryRenderedFeatures({
+        layers: ["jamaica"]
+        });
 
         console.log(features)
+        
+    
+    
 
 
   }
